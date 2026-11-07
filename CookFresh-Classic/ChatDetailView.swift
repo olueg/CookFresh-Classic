@@ -11,6 +11,7 @@ struct ChatDetailView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
     @AppStorage("gemini_api_key") private var apiKey: String = ""
+    @AppStorage("gemini_model") private var model: String = "gemini-1.5-flash"
 
     @FetchRequest private var messages: FetchedResults<ChatMessage>
 
@@ -95,7 +96,7 @@ struct ChatDetailView: View {
 
         let history = messages.map { (role: $0.role ?? "user", content: $0.content ?? "") }
         do {
-            let reply = try await GeminiService.shared.send(messages: history, apiKey: apiKey)
+            let reply = try await GeminiService.shared.send(messages: history, apiKey: apiKey, model: model)
             let assistantMsg = ChatMessage(context: viewContext)
             assistantMsg.id = UUID()
             assistantMsg.role = "assistant"

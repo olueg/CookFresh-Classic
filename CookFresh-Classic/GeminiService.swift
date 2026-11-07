@@ -60,10 +60,9 @@ enum GeminiServiceError: Error, LocalizedError {
 actor GeminiService {
     static let shared = GeminiService()
 
-    private let model = "gemini-1.5-flash"
     private let session = URLSession.shared
 
-    func send(messages: [(role: String, content: String)], apiKey: String) async throws -> String {
+    func send(messages: [(role: String, content: String)], apiKey: String, model: String = "gemini-1.5-flash") async throws -> String {
         guard !apiKey.isEmpty else { throw GeminiServiceError.missingAPIKey }
 
         let contents = messages.map { GeminiMessage(role: $0.role == "assistant" ? "model" : "user", parts: [GeminiPart(text: $0.content)]) }
