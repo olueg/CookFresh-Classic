@@ -6,19 +6,20 @@ Native Apple app (SwiftUI + CoreData) built with Xcode. Single target, no tests,
 
 - Scheme: `CookFresh-Classic`
 - iOS (verified working): `xcodebuild -scheme CookFresh-Classic -destination 'platform=iOS Simulator,name=iPhone 15' build`
-- macOS: `xcodebuild -scheme CookFresh-Classic -destination 'platform=macOS' build` — **currently fails** (see below).
+- macOS (compiles; sign with `CODE_SIGNING_ALLOWED=NO` in CLI): `xcodebuild -scheme CookFresh-Classic -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO build`
 
 ## CoreData
 
-- Model: `CookFresh-Classic/CookFresh_Classic.xcdatamodeld` (`Item` entity, optional `timestamp: Date`).
-- `codeGenerationType="class"`: Xcode auto-generates `Item` (and model) subclasses into DerivedSources. Do not add hand-written `Item` managed-object files.
+- Model: `CookFresh-Classic/CookFresh_Classic.xcdatamodeld` (`ChatSession`, `ChatMessage` entities). `ChatSession.messages` cascades to `ChatMessage`.
+- `codeGenerationType="class"`: Xcode auto-generates `ChatSession`/`ChatMessage` subclasses into DerivedSources. Do not add hand-written managed-object files.
 - `PersistenceController.shared` provides the container; `PersistenceController.preview` for SwiftUI previews.
 
-## Platform support gotcha
+## Platform support
 
-`project.pbxproj` declares `SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx"`, `SUPPORTS_MACCATALYST = NO`, `MACOSX_DEPLOYMENT_TARGET = 13.5`. But `ContentView.swift` uses `.toolbar { ToolbarItem(placement: .navigationBarTrailing) { EditButton() } }`, whose placement and `EditButton` are unavailable on macOS, so the macOS build currently fails. For a working Mac build, make those iOS-only (e.g. `#if os(iOS)` or a cross-platform placement). iOS build is the reliable verification today.
+`project.pbxproj` declares `SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx"`, `SUPPORTS_MACCATALYST = NO`, `MACOSX_DEPLOYMENT_TARGET = 13.5`. The UI is now cross-platform (SwiftUI only); avoid iOS-only APIs such as `.navigationBarTrailing` placement or `EditButton()` in shared views. Both platforms build; macOS code signing may fail in CLI without a valid cert (use `CODE_SIGNING_ALLOWED=NO` for compile checks).
 
 ## Conventions
 
 - iOS deployment target 17.2, macOS 13.5, Swift 5.0. Bundle ID `com.olaflueg.CookFresh-Classic`.
+- Gemini API key stored via `@AppStorage("gemini_api_key")` (UserDefaults). `GeminiService` (actor) calls the REST API with full history each turn.
 - No test target exists; verification = successful build.

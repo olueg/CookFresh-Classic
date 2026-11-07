@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173BE28754BD98DCD0C20B53 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B6C7EC9DD1D8051EF1182 /* ChatDetailView.swift */; };
+		2C2352113A331DF3F51DE30C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79889D68F56E197096BE314D /* SettingsView.swift */; };
+		6232A5CFD19B10045D5BD947 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658589EAB2E95D913051A42 /* GeminiService.swift */; };
+		785B560A39BAD92797D9E85F /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454DB433E8033519A9770FF9 /* ChatListView.swift */; };
 		EDC8536B309E0E84007606D1 /* CookFresh_ClassicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8536A309E0E84007606D1 /* CookFresh_ClassicApp.swift */; };
 		EDC8536D309E0E84007606D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8536C309E0E84007606D1 /* ContentView.swift */; };
 		EDC8536F309E0E8A007606D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC8536E309E0E8A007606D1 /* Assets.xcassets */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		446B6C7EC9DD1D8051EF1182 /* ChatDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
+		454DB433E8033519A9770FF9 /* ChatListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		79889D68F56E197096BE314D /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B658589EAB2E95D913051A42 /* GeminiService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		EDC85367309E0E84007606D1 /* CookFresh-Classic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CookFresh-Classic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC8536A309E0E84007606D1 /* CookFresh_ClassicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookFresh_ClassicApp.swift; sourceTree = "<group>"; };
 		EDC8536C309E0E84007606D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +69,10 @@
 				EDC85373309E0E8A007606D1 /* Persistence.swift */,
 				EDC85375309E0E8A007606D1 /* CookFresh_Classic.xcdatamodeld */,
 				EDC85370309E0E8A007606D1 /* Preview Content */,
+				B658589EAB2E95D913051A42 /* GeminiService.swift */,
+				79889D68F56E197096BE314D /* SettingsView.swift */,
+				446B6C7EC9DD1D8051EF1182 /* ChatDetailView.swift */,
+				454DB433E8033519A9770FF9 /* ChatListView.swift */,
 			);
 			path = "CookFresh-Classic";
 			sourceTree = "<group>";
@@ -147,6 +159,10 @@
 				EDC8536D309E0E84007606D1 /* ContentView.swift in Sources */,
 				EDC8536B309E0E84007606D1 /* CookFresh_ClassicApp.swift in Sources */,
 				EDC85377309E0E8A007606D1 /* CookFresh_Classic.xcdatamodeld in Sources */,
+				6232A5CFD19B10045D5BD947 /* GeminiService.swift in Sources */,
+				2C2352113A331DF3F51DE30C /* SettingsView.swift in Sources */,
+				173BE28754BD98DCD0C20B53 /* ChatDetailView.swift in Sources */,
+				785B560A39BAD92797D9E85F /* ChatListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
