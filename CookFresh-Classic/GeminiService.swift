@@ -66,7 +66,7 @@ actor GeminiService {
     func send(messages: [(role: String, content: String)], apiKey: String) async throws -> String {
         guard !apiKey.isEmpty else { throw GeminiServiceError.missingAPIKey }
 
-        let contents = messages.map { GeminiMessage(role: $0.role, parts: [GeminiPart(text: $0.content)]) }
+        let contents = messages.map { GeminiMessage(role: $0.role == "assistant" ? "model" : "user", parts: [GeminiPart(text: $0.content)]) }
         let body = GeminiRequest(contents: contents, generationConfig: GeminiGenerationConfig(temperature: 0.7))
         let data = try JSONEncoder().encode(body)
 
