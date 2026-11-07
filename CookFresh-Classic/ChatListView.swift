@@ -17,7 +17,7 @@ struct ChatListView: View {
     @State private var showSettings = false
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List {
                 ForEach(sessions) { session in
                     NavigationLink {

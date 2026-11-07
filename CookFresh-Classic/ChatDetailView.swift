@@ -57,9 +57,8 @@ struct ChatDetailView: View {
             }
 
             HStack {
-                TextField("Message", text: $input, axis: .vertical)
+                TextField("Message", text: $input)
                     .textFieldStyle(.roundedBorder)
-                    .lineLimit(1...4)
                 Button {
                     Task { await send() }
                 } label: {

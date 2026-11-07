@@ -10,7 +10,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Form {
                 Section("Gemini") {
                     SecureField("API Key", text: $apiKey)
