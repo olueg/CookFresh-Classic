@@ -21,5 +21,5 @@ Native Apple app (SwiftUI + CoreData) built with Xcode. Single target, no tests,
 ## Conventions
 
 - iOS deployment target 15.6, macOS 13.5, Swift 5.0. Bundle ID `com.olaflueg.CookFresh-Classic`. (Project-level IPHONEOS_DEPLOYMENT_TARGET still 17.2; target overrides to 15.6.)
-- Gemini API key stored via `@AppStorage("gemini_api_key")` (UserDefaults). `GeminiService` (actor) calls the REST API with full history each turn.
+- Gemini API key and selected model stored via `@AppStorage` (UserDefaults keys `gemini_api_key`, `gemini_model`). `GeminiService` (actor) calls the REST API with full history each turn.
 - No test target exists; verification = successful build.
